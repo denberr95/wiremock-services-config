@@ -1,0 +1,13 @@
+{
+    "request": {
+        "method": "GET",
+        "url": "/mock/dynamic-response-data"
+    },
+    "response": {
+        "status": 200,
+        "bodyFileName": "dynamic-response-data.json",
+        "headers": {
+            "Content-Type": "application/json"
+        }
+    }
+}

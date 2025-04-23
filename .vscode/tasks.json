@@ -1,0 +1,49 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "start-podman-env",
+            "type": "shell",
+            "group": "test",
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "podman-container-remove",
+                "podman-volume-remove",
+                "podman-system-prune",
+                "podman-compose-env-up",
+            ]
+        },
+        {
+            "label": "podman-volume-remove",
+            "type": "shell",
+            "command": "podman volume rm --force --all",
+            "group": "none",
+        },
+        {
+            "label": "podman-container-remove",
+            "type": "shell",
+            "command": "podman container rm --force --all",
+            "group": "none",
+        },
+        {
+            "label": "podman-system-prune",
+            "type": "shell",
+            "command": "podman system prune --force --all --volumes",
+            "group": "none",
+        },
+        {
+            "label": "podman-compose-env-up",
+            "type": "shell",
+            "command": "podman-compose --project wiremock-services --file ./compose.yaml up --force-recreate --remove-orphans",
+            "group": "test",
+        },
+        {
+            "label": "podman-compose-env-stop",
+            "type": "shell",
+            "command": "podman-compose --project wiremock-services --file ./compose.yaml stop",
+            "group": "test",
+        },
+    ]
+}

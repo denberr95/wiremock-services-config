@@ -1,0 +1,44 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+    <soap:Header>
+        <headerSII:IdPratica xmlns:headerSII="http://www.acquirenteunico.it/schemas/2010/SII_AU/IntestazioneSII"
+            xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" SOAP-ENV:mustUnderstand="0">868786592</headerSII:IdPratica>
+    </soap:Header>
+    <soap:Body>
+        <ns1:PK1.0050Response xmlns:ns1="http://www.sii.acquirenteunico.it/PK1">
+            <MessaggioSII xmlns:ns2="http://www.acquirenteunico.it/schemas/SII_AU/StruttureGenerali/v1"
+                xmlns:ns3="http://www.acquirenteunico.it/schemas/SII_AU/Flussi_PK1/v3"
+                xmlns:ns4="http://www.acquirenteunico.it/schemas/SII_AU/Flussi_VS1/v1"
+                xmlns:ns5="http://www.acquirenteunico.it/schemas/2010/SII_AU/MessaggioSII"
+                xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xmlns:ns1="http://www.sii.acquirenteunico.it/PK1" xsi:type="ns5:ammissibilitaVerificaMessaggioSIIType">
+                <ns5:RichiestaSII>
+                    <ns5:AzioneRichiesta>
+                        <ns5:Servizio>PK1</ns5:Servizio>
+                        <ns5:Operazione>PK1.0150</ns5:Operazione>
+                    </ns5:AzioneRichiesta>
+                    <ns5:Erogatore>UT1915</ns5:Erogatore>
+                    <ns5:Fruitore>AU</ns5:Fruitore>
+                </ns5:RichiestaSII>
+                <ns5:DatiSII xsi:type="ns5:ammissibilitaVerificaDatiSIIType">
+                    <ns5:Flusso COD_FLUSSO="0150" COD_SERVIZIO="PK1">
+                        <ns3:IdentificativiRichiesta>
+                            <ns2:PIVA_VENDITORE>{{{soapXPath request.body '/a/test/text()'}}}</ns2:PIVA_VENDITORE>
+                            <ns2:PIVA_GESTORE>05877611003</ns2:PIVA_GESTORE>
+                            <ns2:CP_VENDITORE>PF03B25PK1EVWTW</ns2:CP_VENDITORE>
+                            <sg:CP_GESTORE xmlns:sg="http://www.acquirenteunico.it/schemas/SII_AU/StruttureGenerali/v1">{{randomValue length=15 type='ALPHABETIC' uppercase=true}}</sg:CP_GESTORE>
+                        </ns3:IdentificativiRichiesta>
+                        <ns3:Ammissibilita>
+                            <ns2:VERIFICA_AMM>1</ns2:VERIFICA_AMM>
+                        </ns3:Ammissibilita>
+                        <ns3:Esito>
+                            <ns2:ESITO>0</ns2:ESITO>
+                            <ns2:COD_ESITO>002</ns2:COD_ESITO>
+                            <ns2:DETTAGLIO_ESITO>Cliente inesistente</ns2:DETTAGLIO_ESITO>
+                        </ns3:Esito>
+                    </ns5:Flusso>
+                </ns5:DatiSII>
+            </MessaggioSII>
+        </ns1:PK1.0050Response>
+    </soap:Body>
+</soap:Envelope>

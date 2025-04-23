@@ -1,0 +1,8 @@
+{
+    "now": "{{now}}",
+    "uuid": "{{randomValue type='UUID'}}",
+    "pick": "{{pickRandom '1' '2' '3'}}",
+    "integer": {{randomInt lower=5 upper=100}},
+    "decimal": {{randomDecimal lower=-0.1 upper=1}}
+    "firstName": "{{random 'Name.first_name'}}"
+}

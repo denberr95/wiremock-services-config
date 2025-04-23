@@ -1,0 +1,4 @@
+<output>
+    <name>{{{xPath request.body '/input/name/text()'}}}</name>
+    <surname>Rossi</surname>
+</output>

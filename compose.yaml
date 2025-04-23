@@ -1,0 +1,27 @@
+services:
+
+  wiremock:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: "no"
+    environment:
+    - TZ=Europe/Rome
+    - JAVA_OPTS=-Xmx128m
+    entrypoint:
+    - /docker-entrypoint.sh
+    - --global-response-templating
+    - --verbose
+    - "--extensions"
+    - "org.wiremock.RandomExtension"
+    volumes:
+    - ./mock/responses:/home/wiremock/__files
+    - ./mock/mappings:/home/wiremock/mappings
+    ports:
+    - "8080:8080"
+    networks:
+    - wiremock-services
+
+networks:
+  wiremock-services:
+    driver: bridge

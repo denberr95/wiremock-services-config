@@ -1,0 +1,18 @@
+{
+    "request": {
+        "method": "POST",
+        "url": "/mock/match-xpath-with-xpath-mapping-response",
+        "bodyPatterns": [
+            {
+                "matchesXPath": "//*[local-name()='name' and starts-with(text(), 'Mario')]"
+            }
+        ]
+    },
+    "response": {
+        "status": 200,
+        "bodyFileName": "match-xpath-with-xpath-mapping-response.xml",
+        "headers": {
+            "Content-Type": "text/xml;charset=UTF-8"
+        }
+    }
+}
